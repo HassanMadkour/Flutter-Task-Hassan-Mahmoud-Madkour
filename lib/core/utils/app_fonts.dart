@@ -32,4 +32,11 @@ class AppFontStyle {
     fontSize: 12,
     color: AppColors.grayOpacity50,
   );
+  //regular 10
+  static TextStyle tajawalRegular10 = TextStyle(
+    fontFamily: AppFonts.tajawal,
+    fontWeight: FontWeight.w400,
+    fontSize: 10,
+    color: AppColors.black,
+  );
 }

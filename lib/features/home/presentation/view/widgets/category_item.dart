@@ -8,14 +8,18 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      spacing: 10,
+      spacing: 5,
       children: [
         Container(
+          height: 56,
+          width: 73,
           decoration: BoxDecoration(
             color: AppColors.blackOpacity10,
             borderRadius: BorderRadius.circular(4),
           ),
-          child: Center(child: Image.asset(name)),
+          child: Center(
+            child: Image.asset("assets/images/categories/image1.png"),
+          ),
         ),
         Text("الكترونيات", style: AppFontStyle.tajawalRegular12),
       ],

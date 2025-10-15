@@ -26,4 +26,6 @@ class AppColors {
   static const Color blueOpacity10 = Color(0x100062E2);
   //FFFFFF opacity 30%
   static const Color whiteOpacity30 = Color(0x4DFFFFFF);
+  //3A813F
+  static const Color green = Color(0xFF3A813F);
 }

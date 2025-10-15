@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/utils/app_colors.dart';
 import 'package:flutter_task/core/utils/app_router.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(DevicePreview(builder: (context) => const MyApp(), enabled: true));

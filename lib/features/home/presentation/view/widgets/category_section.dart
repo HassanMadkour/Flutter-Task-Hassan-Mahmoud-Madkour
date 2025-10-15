@@ -8,7 +8,10 @@ class CategorySection extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 78,
-      child: ListView.builder(
+      child: ListView.separated(
+        separatorBuilder: (context, index) {
+          return const SizedBox(width: 12);
+        },
         scrollDirection: Axis.horizontal,
         itemCount: 5,
         itemBuilder: (context, index) {
