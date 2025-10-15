@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/utils/app_colors.dart';
 import 'package:flutter_task/core/utils/app_fonts.dart';
-import 'package:flutter_task/features/home/presentation/view/widgets/explore_card.dart';
+import 'package:flutter_task/features/home/presentation/view/widgets/explore_offer_list_builder.dart';
 
 class ExploreSection extends StatelessWidget {
   const ExploreSection({super.key});
@@ -9,29 +9,21 @@ class ExploreSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 12,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          children: [
-            Text("استكشف العروض", style: AppFontStyle.tajawalMedium16),
-            Spacer(),
-            Text("الكل", style: AppFontStyle.tajawalBold16),
-            Icon(Icons.arrow_back, color: AppColors.grayOpacity50),
-          ],
-        ),
-        SizedBox(
-          height: 41,
-          child: ListView.separated(
-            separatorBuilder: (context, index) {
-              return const SizedBox(width: 8);
-            },
-            scrollDirection: Axis.horizontal,
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return ExploreCard();
-            },
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Row(
+            children: [
+              Text("استكشف العروض", style: AppFontStyle.tajawalMedium16),
+              Spacer(),
+              Text("الكل", style: AppFontStyle.tajawalBold16),
+              Icon(Icons.arrow_forward, color: AppColors.grayOpacity50),
+            ],
           ),
         ),
+        ExploreOfferListBuilder(),
       ],
     );
   }

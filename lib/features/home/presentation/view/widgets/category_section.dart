@@ -9,6 +9,7 @@ class CategorySection extends StatelessWidget {
     return SizedBox(
       height: 78,
       child: ListView.separated(
+        padding: const EdgeInsets.only(right: 16),
         separatorBuilder: (context, index) {
           return const SizedBox(width: 12);
         },
