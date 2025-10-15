@@ -12,6 +12,13 @@ class AppFontStyle {
     fontSize: 16,
     color: AppColors.black,
   );
+  //medium12
+  static TextStyle tajawalMedium12 = TextStyle(
+    fontFamily: AppFonts.tajawal,
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+    color: AppColors.black,
+  );
   static TextStyle tajawalBold16 = TextStyle(
     fontFamily: AppFonts.tajawal,
     fontWeight: FontWeight.w700,
