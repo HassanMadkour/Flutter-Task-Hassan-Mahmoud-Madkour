@@ -31,23 +31,41 @@ class HomeView extends StatelessWidget {
           selectedItemColor: AppColors.black,
           selectedLabelStyle: AppFontStyle.tajawalMedium12,
           showUnselectedLabels: true,
-          showSelectedLabels: true,
-          items: const [
+          showSelectedLabels: false,
+          items: [
             BottomNavigationBarItem(
+              activeIcon: Container(
+                padding: const EdgeInsets.only(top: 4, right: 6, left: 6),
+                margin: const EdgeInsets.only(top: 8),
+                decoration: BoxDecoration(
+                  border: Border(bottom: BorderSide(color: AppColors.black)),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Icon(Icons.bungalow_outlined),
+                    Text("الرئيسية", style: AppFontStyle.tajawalMedium12),
+                  ],
+                ),
+              ),
               icon: Icon(Icons.bungalow_outlined),
               label: 'الرئيسية',
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'محادثة'),
             BottomNavigationBarItem(
-              icon: Icon(Icons.add_box_outlined),
+              icon: Icon(Icons.chat, size: 24),
+              label: 'محادثة',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_box_outlined, size: 24),
               label: 'اضف اعلان',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.dataset_outlined),
+              icon: Icon(Icons.dataset_outlined, size: 24),
               label: 'اعلاناتي',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined),
+              icon: Icon(Icons.account_circle_outlined, size: 24),
               label: 'حسابي',
             ),
           ],

@@ -19,11 +19,25 @@ class AppFontStyle {
     fontSize: 12,
     color: AppColors.black,
   );
+  //medium24
+  static TextStyle tajawalMedium24 = TextStyle(
+    fontFamily: AppFonts.tajawal,
+    fontWeight: FontWeight.w500,
+    fontSize: 24,
+    color: AppColors.black,
+  );
   static TextStyle tajawalBold16 = TextStyle(
     fontFamily: AppFonts.tajawal,
     fontWeight: FontWeight.w700,
     fontSize: 16,
     color: AppColors.grayOpacity50,
+  );
+  //bold14
+  static TextStyle tajawalBold14 = TextStyle(
+    fontFamily: AppFonts.tajawal,
+    fontWeight: FontWeight.w700,
+    fontSize: 14,
+    color: AppColors.blue,
   );
   // medium 14
   static TextStyle tajawalMedium14 = TextStyle(
