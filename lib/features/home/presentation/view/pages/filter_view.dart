@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/utils/app_colors.dart';
 import 'package:flutter_task/core/utils/app_fonts.dart';
-import 'package:flutter_task/features/home/presentation/view/pages/custom_text_field.dart';
-import 'package:flutter_task/features/home/presentation/view/pages/custom_wrap_builder.dart';
+import 'package:flutter_task/features/home/presentation/view/widgets/custom_text_field.dart';
+import 'package:flutter_task/features/home/presentation/view/widgets/custom_wrap_builder.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/class_widget.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/location_widget.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/title_with_child_widget.dart';

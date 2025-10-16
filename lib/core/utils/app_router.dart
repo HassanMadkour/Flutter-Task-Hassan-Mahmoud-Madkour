@@ -9,9 +9,9 @@ class AppRouter {
   static const String filterRoute = '/filter';
   static final appRouter = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const FilterView()),
+      GoRoute(path: '/', builder: (context, state) => const BundleView()),
       GoRoute(path: '/bundle', builder: (context, state) => const HomeView()),
-      GoRoute(path: '/filter', builder: (context, state) => const BundleView()),
+      GoRoute(path: '/filter', builder: (context, state) => const FilterView()),
     ],
   );
 }

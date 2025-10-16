@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/features/home/presentation/view/pages/filter_chip.dart';
+import 'package:flutter_task/features/home/presentation/view/widgets/filter_chip.dart';
 
 class CustomWrapBuilder extends StatefulWidget {
   const CustomWrapBuilder({super.key, required this.items});
