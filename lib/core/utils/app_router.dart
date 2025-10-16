@@ -1,4 +1,4 @@
-import 'package:flutter_task/features/home/presentation/view/pages/bundle_view.dart';
+import 'package:flutter_task/features/bundles/presentation/view/pages/bundle_view.dart';
 import 'package:flutter_task/features/home/presentation/view/pages/filter_view.dart';
 import 'package:flutter_task/features/home/presentation/view/pages/home_view.dart';
 import 'package:go_router/go_router.dart';

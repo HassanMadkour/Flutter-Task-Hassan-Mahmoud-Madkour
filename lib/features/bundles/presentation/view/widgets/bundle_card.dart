@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/utils/app_colors.dart';
 import 'package:flutter_task/core/utils/app_fonts.dart';
+import 'package:flutter_task/features/bundles/domain/entities/bundle_entity.dart';
 import 'package:flutter_task/features/bundles/presentation/view/widgets/features_list_builder.dart';
 import 'package:flutter_task/features/bundles/presentation/view/widgets/view_section.dart';
 
 class BundleCard extends StatelessWidget {
-  const BundleCard({super.key, required this.isSelected, required this.plan});
+  const BundleCard({super.key, required this.bundleEntity});
 
-  final bool isSelected;
-  final Map<String, dynamic> plan;
+  final BundleEntity bundleEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -27,20 +27,24 @@ class BundleCard extends StatelessWidget {
             spacing: 12,
             children: [
               Icon(
-                isSelected
+                bundleEntity.isSelected
                     ? Icons.check_box_rounded
                     : Icons.check_box_outline_blank,
-                color: isSelected ? AppColors.blue : AppColors.black,
+                color: bundleEntity.isSelected
+                    ? AppColors.blue
+                    : AppColors.black,
               ),
               Text(
-                plan['name'],
+                bundleEntity.name,
                 style: AppFontStyle.tajawalBold16.copyWith(
-                  color: isSelected ? AppColors.blue : AppColors.black,
+                  color: bundleEntity.isSelected
+                      ? AppColors.blue
+                      : AppColors.black,
                 ),
               ),
               Spacer(),
               Text(
-                "${plan['price']} ج.م",
+                "${bundleEntity.price} ج.م",
                 style: AppFontStyle.tajawalBold16.copyWith(
                   color: AppColors.red,
                   decoration: TextDecoration.underline,
@@ -53,7 +57,10 @@ class BundleCard extends StatelessWidget {
           const Divider(height: 20),
           Row(
             children: [
-              Expanded(flex: 3, child: FeaturesListBuilder()),
+              Expanded(
+                flex: 3,
+                child: FeaturesListBuilder(features: bundleEntity.features),
+              ),
               //views
               Expanded(flex: 1, child: ViewSection()),
 

@@ -5,7 +5,8 @@ class FeatureEntity {
   final String? note;
   final int icon;
 
-  FeatureEntity(this.name, this.note, this.icon);
+  FeatureEntity({required this.name, this.note, required this.icon});
 
   IconData get iconData => IconData(icon);
+  // convert icon date to int
 }

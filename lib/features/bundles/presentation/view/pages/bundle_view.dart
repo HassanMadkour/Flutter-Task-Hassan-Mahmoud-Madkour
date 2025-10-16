@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/utils/app_fonts.dart';
+import 'package:flutter_task/features/bundles/domain/entities/bundle_entity.dart';
+import 'package:flutter_task/features/bundles/domain/entities/feature_entity.dart';
 import 'package:flutter_task/features/bundles/presentation/view/widgets/bundle_card.dart';
 
 class BundleView extends StatefulWidget {
@@ -10,50 +12,21 @@ class BundleView extends StatefulWidget {
 }
 
 class BundleViewState extends State<BundleView> {
-  int selectedIndex = 1; // الباقة المحددة (مثلاً 1 = أكسترا)
-
-  final List<Map<String, dynamic>> plans = [
-    {
-      "name": "أساسية",
-      "price": "3000",
-      "features": ["صلاحية الإعلان 30 يوم"],
-    },
-    {
-      "name": "أكسترا",
-      "price": "3000",
-      "features": [
-        "صلاحية الإعلان 30 يوم",
-        "رفع الإعلان كل 3 أيام",
-        "تثبيت في مواقع صحي (خلال الـ 48 ساعة القادمة)",
+  final List<BundleEntity> bundles = [
+    BundleEntity(
+      name: "أساسية",
+      price: "3000",
+      features: [
+        FeatureEntity(
+          name: "صلاحية الإعلان 30 يوم",
+          note: null,
+          icon: Icons.abc.codePoint,
+        ),
       ],
-      "highlight": "الأفضل قيمة مقابل سعر",
-      "views": 7,
-    },
-    {
-      "name": "بلس",
-      "price": "3000",
-      "features": [
-        "صلاحية الإعلان 30 يوم",
-        "رفع الإعلان كل 2 يوم",
-        "ظهور في محافظات مصر",
-        "إعلان مميز",
-        "تثبيت في مواقع صحي (خلال الـ 48 ساعة القادمة)",
-      ],
-      "highlight": "الأكثر مبيعاً",
-      "views": 18,
-    },
-    {
-      "name": "سوبر",
-      "price": "3000",
-      "features": [
-        "صلاحية الإعلان 30 يوم",
-        "رفع الإعلان كل 2 يوم",
-        "ظهور في محافظات مصر",
-        "إعلان مميز",
-        "تثبيت في مواقع صحي (خلال الـ 48 ساعة القادمة)",
-      ],
-      "views": 24,
-    },
+      views: 7,
+      highlight: "الأفضل قيمة مقابل سعر",
+      isSelected: false,
+    ),
   ];
 
   @override
@@ -80,14 +53,9 @@ class BundleViewState extends State<BundleView> {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: plans.length,
+                  itemCount: bundles.length,
                   itemBuilder: (context, index) {
-                    final plan = plans[index];
-                    final isSelected = selectedIndex == index;
-                    return GestureDetector(
-                      onTap: () => setState(() => selectedIndex = index),
-                      child: BundleCard(isSelected: isSelected, plan: plan),
-                    );
+                    return BundleCard(bundleEntity: bundles[index]);
                   },
                 ),
               ),

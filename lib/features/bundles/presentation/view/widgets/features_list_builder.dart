@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/utils/app_colors.dart';
 import 'package:flutter_task/core/utils/app_fonts.dart';
-import 'package:flutter_task/features/home/domain/entities/feature_entity.dart';
+import 'package:flutter_task/features/bundles/domain/entities/feature_entity.dart';
 
 class FeaturesListBuilder extends StatelessWidget {
   const FeaturesListBuilder({super.key, required this.features});
