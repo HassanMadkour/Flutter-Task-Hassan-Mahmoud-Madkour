@@ -10,7 +10,7 @@ void main() {
   // DatabaseService().resetDatabase();
   ServiceLocator.instance.init();
 
-  runApp(DevicePreview(builder: (context) => const MyApp(), enabled: true));
+  runApp(DevicePreview(builder: (context) => const MyApp(), enabled: false));
 }
 
 class MyApp extends StatelessWidget {
