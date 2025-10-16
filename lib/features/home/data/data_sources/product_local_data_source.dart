@@ -1,4 +1,5 @@
 import 'package:flutter_task/core/utils/db_service.dart';
+import 'package:flutter_task/features/home/data/models/product_model.dart';
 import 'package:flutter_task/features/home/domain/entities/product_entity.dart';
 
 abstract class ProductLocalDataSource {
@@ -12,6 +13,8 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
 
   @override
   Future<List<ProductEntity>> getAllProducts() async {
-    return await databaseService.getAllProducts();
+    var db = await databaseService.database;
+    var result = await db.query('products');
+    return result.map((e) => ProductModel.fromDb(e)).toList();
   }
 }

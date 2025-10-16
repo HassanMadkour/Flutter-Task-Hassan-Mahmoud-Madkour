@@ -1,4 +1,5 @@
 import 'package:flutter_task/core/utils/db_service.dart';
+import 'package:flutter_task/features/home/data/models/category_model.dart';
 import 'package:flutter_task/features/home/domain/entities/category_enitiy.dart';
 
 abstract class CategoryLocalDataSource {
@@ -12,6 +13,8 @@ class CategoryLocalDataSourceImpl implements CategoryLocalDataSource {
 
   @override
   Future<List<CategoryEntity>> getAllCategories() async {
-    return await databaseService.getAllCategories();
+    var db = await databaseService.database;
+    var result = await db.query('categories');
+    return result.map((e) => CategoryModel.fromDb(e)).toList();
   }
 }

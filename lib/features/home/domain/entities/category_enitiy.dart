@@ -2,5 +2,5 @@ class CategoryEntity {
   final String name;
   final String image;
 
-  CategoryEntity(this.name, this.image);
+  CategoryEntity({required this.name, required this.image});
 }
