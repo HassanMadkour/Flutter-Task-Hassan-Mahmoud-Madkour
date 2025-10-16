@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/core/utils/app_colors.dart';
-import 'package:flutter_task/core/utils/app_fonts.dart';
+import 'package:flutter_task/core/utils/app_router.dart';
+import 'package:flutter_task/core/widgets/custom_button.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/custom_text_field.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/custom_wrap_builder.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/class_widget.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/location_widget.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/title_with_child_widget.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/filter_title_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class FilterView extends StatelessWidget {
   const FilterView({super.key});
@@ -82,19 +83,11 @@ class FilterView extends StatelessWidget {
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: MaterialButton(
-                  padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                  color: AppColors.blue,
-                  onPressed: () {},
-                  child: Text(
-                    "شاهد 10,000+ نتائج",
-                    style: AppFontStyle.tajawalBold16.copyWith(
-                      color: AppColors.white,
-                    ),
-                  ),
+                child: CustomButton(
+                  text: "شاهد 10,000+ نتائج",
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouter.filterRoute);
+                  },
                 ),
               ),
               const SizedBox(height: 20),

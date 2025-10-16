@@ -6,11 +6,12 @@ class ProductModel extends ProductEntity {
 
   ProductModel({
     this.id,
+    this.categoryId,
     required super.name,
     required super.price,
     required super.oldPrice,
     required super.soldNumber,
-    this.categoryId,
+    required super.image,
   });
 
   // Convert a ProductModel into a Map
@@ -22,6 +23,7 @@ class ProductModel extends ProductEntity {
       'oldPrice': oldPrice,
       'soldNumber': soldNumber,
       'categoryId': categoryId,
+      'image': image,
     };
   }
 
@@ -34,6 +36,7 @@ class ProductModel extends ProductEntity {
       oldPrice: (map['oldPrice'] as num).toDouble(),
       soldNumber: map['soldNumber'] as int,
       categoryId: map['categoryId'] as int?,
+      image: map['image'] as String,
     );
   }
 
@@ -44,11 +47,16 @@ class ProductModel extends ProductEntity {
       price: price,
       oldPrice: oldPrice,
       soldNumber: soldNumber,
+      image: image,
     );
   }
 
   // Create a ProductModel from a ProductEntity
-  factory ProductModel.fromEntity(ProductEntity entity, {int? id, int? categoryId}) {
+  factory ProductModel.fromEntity(
+    ProductEntity entity, {
+    int? id,
+    int? categoryId,
+  }) {
     return ProductModel(
       id: id,
       name: entity.name,
@@ -56,6 +64,7 @@ class ProductModel extends ProductEntity {
       oldPrice: entity.oldPrice,
       soldNumber: entity.soldNumber,
       categoryId: categoryId,
+      image: entity.image,
     );
   }
 }

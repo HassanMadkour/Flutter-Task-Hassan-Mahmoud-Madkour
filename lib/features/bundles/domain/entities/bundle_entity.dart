@@ -4,7 +4,7 @@ class BundleEntity {
   final String name;
   final String price;
   final List<FeatureEntity> features;
-  final int views;
+  final int? views;
   final String? highlight;
   bool isSelected;
 

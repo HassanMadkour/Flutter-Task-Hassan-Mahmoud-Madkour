@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/utils/app_colors.dart';
 import 'package:flutter_task/core/utils/app_fonts.dart';
+import 'package:flutter_task/features/home/domain/entities/category_enitiy.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+  const CategoryItem({super.key, required this.category});
+  final CategoryEntity category;
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +19,9 @@ class CategoryItem extends StatelessWidget {
             color: AppColors.blackOpacity10,
             borderRadius: BorderRadius.circular(4),
           ),
-          child: Center(
-            child: Image.asset("assets/images/categories/image1.png"),
-          ),
+          child: Center(child: Image.asset(category.image)),
         ),
-        Text("الكترونيات", style: AppFontStyle.tajawalRegular12),
+        Text(category.name, style: AppFontStyle.tajawalRegular12),
       ],
     );
   }

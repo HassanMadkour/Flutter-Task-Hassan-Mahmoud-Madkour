@@ -3,8 +3,8 @@ import 'package:flutter_task/core/utils/app_colors.dart';
 import 'package:flutter_task/core/utils/app_fonts.dart';
 
 class ViewSection extends StatelessWidget {
-  const ViewSection({super.key});
-
+  const ViewSection({super.key, this.views});
+  final int? views;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +23,7 @@ class ViewSection extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              "7",
+              views.toString(),
               style: AppFontStyle.tajawalBold14.copyWith(
                 color: AppColors.green,
               ),
@@ -34,6 +34,7 @@ class ViewSection extends StatelessWidget {
           textAlign: TextAlign.center,
           "ضعف عدد المشاهدات",
           style: AppFontStyle.tajawalRegular12.copyWith(
+            color: AppColors.black,
             decoration: TextDecoration.underline,
             decorationStyle: TextDecorationStyle.solid,
           ),

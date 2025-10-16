@@ -2,25 +2,12 @@ import 'package:flutter_task/features/bundles/domain/entities/feature_entity.dar
 
 class FeatureModel extends FeatureEntity {
   final int? id;
-  final int? bundleId;
 
-  FeatureModel({
-    this.id,
-    required super.name,
-    super.note,
-    required super.icon,
-    this.bundleId,
-  });
+  FeatureModel({this.id, required super.name, super.note, required super.icon});
 
   // Convert a FeatureModel into a Map
   Map<String, dynamic> toDb() {
-    return {
-      'id': id,
-      'name': name,
-      'note': note,
-      'icon': icon,
-      'bundleId': bundleId,
-    };
+    return {'id': id, 'name': name, 'note': note, 'icon': icon};
   }
 
   // Create a FeatureModel from a Map
@@ -30,7 +17,6 @@ class FeatureModel extends FeatureEntity {
       name: map['name'] as String,
       note: map['note'] as String?,
       icon: map['icon'] as int,
-      bundleId: map['bundleId'] as int?,
     );
   }
 
@@ -50,7 +36,6 @@ class FeatureModel extends FeatureEntity {
       name: entity.name,
       note: entity.note,
       icon: entity.icon,
-      bundleId: bundleId,
     );
   }
 }

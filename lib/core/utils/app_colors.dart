@@ -2,6 +2,7 @@ import 'dart:ui';
 
 class AppColors {
   static const Color white = Color(0xFFFFFFFF);
+  static const Color whiteOpacity = Color(0xFFF7F7F7);
   //090F1F
   static const Color black = Color(0xFF090F1F);
   //090F1F opacity 50
@@ -32,4 +33,6 @@ class AppColors {
   static const Color orangeOpacity5 = Color(0x05F95B1C);
   //green 5%
   static const Color greenOpacity5 = Color(0x053A813F);
+  //FFDBDB
+  static const Color pink = Color(0xffffdbdb);
 }

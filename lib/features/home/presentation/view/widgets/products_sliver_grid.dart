@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/features/home/domain/entities/product_entity.dart';
 import 'package:flutter_task/features/home/presentation/view/widgets/product_item.dart';
 
 class ProductsSliverGrid extends StatelessWidget {
-  const ProductsSliverGrid({super.key});
-
+  const ProductsSliverGrid({super.key, required this.products});
+  final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return SliverPadding(
@@ -16,9 +17,9 @@ class ProductsSliverGrid extends StatelessWidget {
           childAspectRatio: 158 / 360,
         ),
         itemBuilder: (context, index) {
-          return ProductItem();
+          return ProductItem(product: products[index]);
         },
-        itemCount: 10,
+        itemCount: products.length,
       ),
     );
   }

@@ -9,24 +9,37 @@ class FeaturesListBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 8,
       children: features
           .map(
-            (feature) => ListTile(
-              title: Text(
-                feature.name,
-                style: AppFontStyle.tajawalMedium14.copyWith(
-                  color: AppColors.black,
-                ),
-              ),
-              leading: Icon(feature.iconData, color: AppColors.black),
-              subtitle: feature.note == null
-                  ? null
-                  : Text(
-                      "(${feature.note!})",
-                      style: AppFontStyle.tajawalMedium14.copyWith(
-                        color: AppColors.red,
+            (feature) => Row(
+              spacing: 8,
+
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(feature.iconData, color: AppColors.black, size: 22),
+
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        feature.name,
+                        style: AppFontStyle.tajawalMedium14.copyWith(
+                          color: AppColors.black,
+                        ),
                       ),
-                    ),
+                      if (feature.note != null)
+                        Text(
+                          "(${feature.note!})",
+                          style: AppFontStyle.tajawalMedium14.copyWith(
+                            color: AppColors.red,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           )
           .toList(),

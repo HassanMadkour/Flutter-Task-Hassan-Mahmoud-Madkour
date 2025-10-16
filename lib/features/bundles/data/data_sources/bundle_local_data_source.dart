@@ -15,23 +15,31 @@ class BundleLocalDataSourceImpl implements BundleLocalDataSource {
   @override
   Future<List<BundleEntity>> getAllBundles() async {
     final db = await databaseService.database;
-    final List<Map<String, dynamic>> maps = await db.query(
+
+    // Get all bundles
+    final List<Map<String, dynamic>> bundlesMaps = await db.query(
       'bundles',
       orderBy: 'id ASC',
     );
 
     final List<BundleEntity> bundles = [];
 
-    for (final bundleMap in maps) {
-      final featuresMaps = await db.query(
-        'features',
-        where: 'bundleId = ?',
-        whereArgs: [bundleMap['id']],
+    for (final bundleMap in bundlesMaps) {
+      final bundleId = bundleMap['id'] as int;
+
+      // Get features through the bundleFeature junction table
+      final featureMaps = await db.rawQuery(
+        '''
+        SELECT f.* FROM features f
+        INNER JOIN bundleFeature bf ON f.id = bf.featureId
+        WHERE bf.bundleId = ?
+      ''',
+        [bundleId],
       );
-      final bundle = BundleModel.fromDb(
-        bundleMap,
-        featuresMaps.map((e) => FeatureModel.fromDb(e)).toList(),
-      );
+
+      final features = featureMaps.map((e) => FeatureModel.fromDb(e)).toList();
+
+      final bundle = BundleModel.fromDb(bundleMap, features);
       bundles.add(bundle.toEntity());
     }
 
